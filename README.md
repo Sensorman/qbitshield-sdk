@@ -9,11 +9,14 @@ Official Python SDK for generating quantum-safe keys using the [QbitShield](http
 ```bash
 pip install git+https://github.com/Sensorman/qbitshield-sdk.git
 
+```
 
+## Usage
+```bash
 from qbitshield import client
 
 
-## Usage
+
 
 api_key = "your-api-key"
 key = client.generate_key(api_key, return_full=True)
@@ -21,7 +24,7 @@ key = client.generate_key(api_key, return_full=True)
 print("✅ Hashed Key:", key["hashed_key"])
 print("🧬 Measured Bits:", key["measured_bits"])
 print("📄 QASM:", key["qasm"][:100] + "...")
-
+```
 ---
 
 ## 🔐 Endpoint
@@ -34,3 +37,12 @@ print("📄 QASM:", key["qasm"][:100] + "...")
   - `hashed_key` (SHA-256 string)
   - `measured_bits` (qubit collapse result)
   - `qasm` (full circuit structure in OpenQASM 3.0)
+
+
+---
+
+## ⚖️ Legal
+
+QbitShield is Patent Pending. The Prime Harmonic Modulation engine used in this SDK is protected under provisional patent filing.
+
+
