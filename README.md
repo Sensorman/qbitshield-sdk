@@ -4,6 +4,10 @@ Official Python SDK for generating quantum-safe keys using the [QbitShield](http
 
 ---
 
+QbitShield SDK provides access to the QbitShield Quantum Key Distribution (QKD) system. 
+
+It lets developers generate secure, entropy-rich cryptographic keys from the QbitShield API, powered by Prime Harmonic Modulation (Patent Pending).
+
 ## 🔧 Installation
 
 ```bash
