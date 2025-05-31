@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: qbitshield
-Version: 0.1.1
+Version: 0.1.2
 Summary: Quantum-safe key generation SDK using Prime Harmonic Modulation
 Author: Will Daoud
 Author-email: Will Daoud <will@qbitshield.com>
