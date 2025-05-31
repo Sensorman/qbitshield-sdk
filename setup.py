@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='qbitshield',
-    version='0.1.0',
+    version='0.1.1',
     description='Quantum-safe key generation SDK using Prime Harmonic Modulation',
     author='Will Daoud',
     author_email='will@qbitshield.com',

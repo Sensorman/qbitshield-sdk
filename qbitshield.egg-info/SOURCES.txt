@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+qbitshield/__init__.py
+qbitshield/client.py
+qbitshield.egg-info/PKG-INFO
+qbitshield.egg-info/SOURCES.txt
+qbitshield.egg-info/dependency_links.txt
+qbitshield.egg-info/requires.txt
+qbitshield.egg-info/top_level.txt
+tests/__init__.py
+tests/test_client.py

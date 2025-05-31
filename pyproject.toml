@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "qbitshield"
-version = "0.1.0"
+version = "0.1.1"
 description = "Quantum-safe key generation SDK using Prime Harmonic Modulation"
 authors = [
   { name="Will Daoud", email="will@qbitshield.com" }
