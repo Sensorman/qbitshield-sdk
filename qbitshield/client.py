@@ -6,6 +6,7 @@ import asyncio
 import base64
 import json
 import os
+import ssl
 import time
 import urllib.parse
 import urllib.request
@@ -15,6 +16,20 @@ from typing import Any, Dict, List, Optional, Sequence
 
 from cryptography.exceptions import InvalidTag
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+# Build an SSL context that uses the system or certifi trust store.
+# On macOS with Python.org builds the default context may lack root certs;
+# certifi (if installed) ships its own CA bundle.
+def _make_ssl_context() -> ssl.SSLContext:
+    ctx = ssl.create_default_context()
+    try:
+        import certifi
+        ctx.load_verify_locations(certifi.where())
+    except ImportError:
+        pass  # certifi not installed — rely on system store
+    return ctx
+
+_SSL_CTX = _make_ssl_context()
 
 DEFAULT_BASE_URL = os.getenv(
     "QBITSHIELD_API_BASE",
@@ -52,7 +67,7 @@ def _http(
     last_err: Exception | None = None
     for attempt in range(_MAX_RETRIES):
         try:
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
+            with urllib.request.urlopen(req, timeout=timeout, context=_SSL_CTX) as resp:
                 return json.loads(resp.read().decode("utf-8"))
         except urllib.error.HTTPError as exc:
             if exc.code in _RETRYABLE and attempt < _MAX_RETRIES - 1:
